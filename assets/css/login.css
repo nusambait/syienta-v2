@@ -1,0 +1,113 @@
+/* Import font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../../../assets-root/bg-3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.514);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #0d6efd, #0099ff);
+    color: white;
+    text-align: center;
+    border-radius: 15px 15px 0 0 !important;
+    padding: 25px;
+}
+
+.card-header h4 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.input-group-text {
+    background: #f8f9fa;
+    border-right: none;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid #e1e1e1;
+    border-left: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #0d6efd, #0099ff);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+} 
