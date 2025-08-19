@@ -795,3 +795,175 @@ label.danger {
     transform: translateX(-20px);
   }
 }
+
+/* ======================================== */
+/* UNIVERSAL BACKGROUND COLOR CLASSES */
+/* ======================================== */
+
+/* Background Abu-abu (Data Nomor dan Identifikasi) */
+.bg-abu {
+  background-color: #f8f9ff !important;
+  border-left: 4px solid #6c757d !important;
+  transition: all 0.3s ease;
+}
+
+.bg-abu-header {
+  background-color: #e9ecef !important;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.text-abu-title {
+  color: #495057 !important;
+}
+
+/* Background Orange (Data Tanggal dan Waktu) */
+.bg-orange {
+  background-color: #fff8f0 !important;
+  border-left: 4px solid #fd7e14 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-orange-header {
+  background-color: #ffeaa7 !important;
+  border-bottom: 1px solid #fdcb6e !important;
+}
+
+.text-orange-title {
+  color: #d63031 !important;
+}
+
+/* Background Hijau (Data Kredit) */
+.bg-hijau {
+  background-color: #f0fff4 !important;
+  border-left: 4px solid #28a745 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-hijau-header {
+  background-color: #d4edda !important;
+  border-bottom: 1px solid #c3e6cb !important;
+}
+
+.text-hijau-title {
+  color: #155724 !important;
+}
+
+/* Background Merah (Data Biaya) */
+.bg-merah {
+  background-color: #fff0f0 !important;
+  border-left: 4px solid #dc3545 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-merah-header {
+  background-color: #f8d7da !important;
+  border-bottom: 1px solid #f5c6cb !important;
+}
+
+.text-merah-title {
+  color: #721c24 !important;
+}
+
+/* Background Ungu (Data Status dan Jenis) */
+.bg-ungu {
+  background-color: #f0f0ff !important;
+  border-left: 4px solid #6f42c1 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-ungu-header {
+  background-color: #e2d9f3 !important;
+  border-bottom: 1px solid #d1ecf1 !important;
+}
+
+.text-ungu-title {
+  color: #4a148c !important;
+}
+
+/* Responsive design untuk background colors */
+@media (max-width: 768px) {
+  .bg-abu,
+  .bg-orange,
+  .bg-hijau,
+  .bg-merah,
+  .bg-ungu {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* ======================================== */
+/* ADDITIONAL UNIVERSAL BACKGROUND COLORS */
+/* ======================================== */
+
+/* Background Biru */
+.bg-biru {
+  background-color: #e3f2fd !important;
+  border-left: 4px solid #2196f3 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-biru-header {
+  background-color: #bbdefb !important;
+  border-bottom: 1px solid #90caf9 !important;
+}
+
+.text-biru-title {
+  color: #0d47a1 !important;
+}
+
+/* Background Kuning */
+.bg-kuning {
+  background-color: #fffde7 !important;
+  border-left: 4px solid #ffc107 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-kuning-header {
+  background-color: #fff9c4 !important;
+  border-bottom: 1px solid #fff59d !important;
+}
+
+.text-kuning-title {
+  color: #f57f17 !important;
+}
+
+/* Background Pink */
+.bg-pink {
+  background-color: #fce4ec !important;
+  border-left: 4px solid #e91e63 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-pink-header {
+  background-color: #f8bbd9 !important;
+  border-bottom: 1px solid #f48fb1 !important;
+}
+
+.text-pink-title {
+  color: #ad1457 !important;
+}
+
+/* Background Teal */
+.bg-teal {
+  background-color: #e0f2f1 !important;
+  border-left: 4px solid #009688 !important;
+  transition: all 0.3s ease;
+}
+
+.bg-teal-header {
+  background-color: #b2dfdb !important;
+  border-bottom: 1px solid #80cbc4 !important;
+}
+
+.text-teal-title {
+  color: #004d40 !important;
+}
+
+/* Hover effects untuk semua additional colors */
+.bg-biru:hover,
+.bg-kuning:hover,
+.bg-pink:hover,
+.bg-teal:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px);
+}

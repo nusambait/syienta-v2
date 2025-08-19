@@ -390,21 +390,27 @@ function terbilangProvisi($number)
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <div class="mb-3">
                                                     <label class="form-label">No. Registrasi</label>
                                                     <input type="text" class="form-control"
                                                         value="<?php echo $data['noreg']; ?>" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-md-4">
                                                 <div class="mb-3">
                                                     <label class="form-label">Nama Nasabah</label>
                                                     <input type="text" class="form-control"
                                                         value="<?php echo $data['nama_nasabah']; ?>" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">NIK</label>
+                                                    <input type="text" class="form-control" value="<?php echo $data['niknas']; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
                                                 <div class="mb-3">
                                                     <label class="form-label">No. Rekening</label>
                                                     <input type="text" name="norek" class="form-control"
@@ -417,8 +423,8 @@ function terbilangProvisi($number)
 
                                 <!-- Data Nomor dan Identifikasi -->
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Data Nomor dan Identifikasi</h5>
+                                    <div class="card-header bg-teal-header">
+                                        <h5 class="card-title mb-0 text-teal-title">Data Nomor dan Identifikasi</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -493,8 +499,8 @@ function terbilangProvisi($number)
 
                                 <!-- Data Tanggal dan Waktu -->
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Data Tanggal dan Waktu</h5>
+                                    <div class="card-header bg-orange-header">
+                                        <h5 class="card-title mb-0 text-orange-title">Data Tanggal dan Waktu</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -532,8 +538,8 @@ function terbilangProvisi($number)
 
                                 <!-- Data Kredit -->
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Data Kredit</h5>
+                                    <div class="card-header bg-hijau-header">
+                                        <h5 class="card-title mb-0 text-hijau-title">Data Kredit</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -574,7 +580,7 @@ function terbilangProvisi($number)
                                                     <label class="form-label">Jangka Waktu (Bulan)</label>
                                                     <input type="text" name="jw" id="jw" class="form-control"
                                                         value="<?php echo $data['jw']; ?>"
-                                                        onkeyup="formatNumber(this); updateTerbilang('jw'); hitungAngsuran();">
+                                                        onkeyup="formatNumber(this); updateTerbilang('jw'); hitungAngsuran(); hitungNilaiPenjamin();">
                                                     <small class="text-muted terbilang-text" id="tjw"></small>
                                                 </div>
                                             </div>
@@ -612,13 +618,48 @@ function terbilangProvisi($number)
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Cara</label>
+                                                    <select name="cara" class="form-control" onchange="hitungAngsuran()">
+                                                        <option value="Flat"
+                                                            <?php echo ($data['cara'] == 'Flat') ? 'selected' : ''; ?>>
+                                                            Flat</option>
+                                                        <option value="Sliding"
+                                                            <?php echo ($data['cara'] == 'Sliding') ? 'selected' : ''; ?>>
+                                                            Sliding</option>
+                                                        <option value="Anuitas"
+                                                            <?php echo ($data['cara'] == 'Anuitas') ? 'selected' : ''; ?>>
+                                                            Anuitas</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Metode</label>
+                                                    <select name="metode" class="form-control" onchange="hitungAngsuran()">
+                                                        <option value="Fixed Rate"
+                                                            <?php echo ($data['metode'] == 'Fixed Rate') ? 'selected' : ''; ?>>
+                                                            Fixed Rate</option>
+                                                        <option value="Flat Rate"
+                                                            <?php echo ($data['metode'] == 'Flat Rate') ? 'selected' : ''; ?>>
+                                                            Flat Rate</option>
+                                                        <option value="Sliding Rate"
+                                                            <?php echo ($data['metode'] == 'Sliding Rate') ? 'selected' : ''; ?>>
+                                                            Sliding Rate</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <!-- Data Biaya -->
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Data Biaya</h5>
+                                    <div class="card-header bg-merah-header">
+                                        <h5 class="card-title mb-0 text-merah-title">Data Biaya</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -667,7 +708,7 @@ function terbilangProvisi($number)
                                                     <label class="form-label">Asuransi Jiwa</label>
                                                     <input type="text" name="asjw" id="asjw" class="form-control"
                                                         value="<?php echo $data['asjw']; ?>"
-                                                        onkeyup="formatNumber(this); updateTerbilang('asjw'); hitungTotalAsuransi();">
+                                                        onkeyup="formatNumber(this); updateTerbilang('asjw'); hitungTotalAsuransi(); hitungNilaiPenjamin();">
                                                     <small class="text-muted terbilang-text" id="tasjw"></small>
                                                 </div>
                                             </div>
@@ -676,7 +717,7 @@ function terbilangProvisi($number)
                                                     <label class="form-label">Asuransi Kendaraan</label>
                                                     <input type="text" name="asken" id="asken" class="form-control"
                                                         value="<?php echo $data['asken']; ?>"
-                                                        onkeyup="formatNumber(this); updateTerbilang('asken'); hitungTotalAsuransi();">
+                                                        onkeyup="formatNumber(this); updateTerbilang('asken'); hitungTotalAsuransi(); hitungNilaiPenjamin();">
                                                     <small class="text-muted terbilang-text" id="tasken"></small>
                                                 </div>
                                             </div>
@@ -729,8 +770,8 @@ function terbilangProvisi($number)
 
                                 <!-- Data Status dan Jenis -->
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Data Status dan Jenis</h5>
+                                    <div class="card-header bg-ungu-header">
+                                        <h5 class="card-title mb-0 text-ungu-title">Data Status dan Jenis</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -910,40 +951,7 @@ function terbilangProvisi($number)
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Cara</label>
-                                                    <select name="cara" class="form-control">
-                                                        <option value="Flat"
-                                                            <?php echo ($data['cara'] == 'Flat') ? 'selected' : ''; ?>>
-                                                            Flat</option>
-                                                        <option value="Sliding"
-                                                            <?php echo ($data['cara'] == 'Sliding') ? 'selected' : ''; ?>>
-                                                            Sliding</option>
-                                                        <option value="Anuitas"
-                                                            <?php echo ($data['cara'] == 'Anuitas') ? 'selected' : ''; ?>>
-                                                            Anuitas</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Metode</label>
-                                                    <select name="metode" class="form-control">
-                                                        <option value="Fixed Rate"
-                                                            <?php echo ($data['metode'] == 'Fixed Rate') ? 'selected' : ''; ?>>
-                                                            Fixed Rate</option>
-                                                        <option value="Flat Rate"
-                                                            <?php echo ($data['metode'] == 'Flat Rate') ? 'selected' : ''; ?>>
-                                                            Flat Rate</option>
-                                                        <option value="Sliding Rate"
-                                                            <?php echo ($data['metode'] == 'Sliding Rate') ? 'selected' : ''; ?>>
-                                                            Sliding Rate</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 
@@ -1216,19 +1224,70 @@ function terbilangProvisi($number)
             let plafond = parseFloat(document.getElementById('plafond').value.replace(/,/g, '')) || 0;
             let sukuBunga = parseFloat(document.getElementById('sukbung').value) || 0;
             let jangkaWaktu = parseInt(document.getElementById('jw').value) || 0;
+            let cara = document.querySelector('select[name="cara"]').value;
 
-            // Hitung angsuran pokok (dengan 2 desimal)
-            let angsuranPokok = (plafond / jangkaWaktu).toFixed(2);
+            // Validasi input
+            if (plafond <= 0 || sukuBunga <= 0 || jangkaWaktu <= 0) {
+                return;
+            }
 
-            // Hitung angsuran bunga (bunga per bulan dengan 2 desimal)
-            let angsuranBunga = ((plafond * (sukuBunga / 100)) / 12).toFixed(2);
+            let angsuranPokok, bungaPerBulan, totalAngsuran;
 
-            // Hitung total angsuran (dengan 2 desimal)
-            let totalAngsuran = (parseFloat(angsuranPokok) + parseFloat(angsuranBunga)).toFixed(2);
+            // Hitung berdasarkan cara yang dipilih
+            switch (cara) {
+                case 'Flat':
+                    // BUNGA FLAT: Pokok + bunga tiap bulan nominalnya sama
+                    angsuranPokok = (plafond / jangkaWaktu).toFixed(2);
+                    bungaPerBulan = (plafond * (sukuBunga / 100)) / 12;
+                    totalAngsuran = (parseFloat(angsuranPokok) + bungaPerBulan).toFixed(2);
+                    break;
+
+                case 'Sliding':
+                    // BUNGA SLIDING: 
+                    // Pinjaman 3 bulan: 1-2 bulan bayar bunga aja, bulan ke 3 Pokok+bunga
+                    // Pinjaman 6 bulan: 1-5 bulan bayar bunga aja, bulan ke 6 Pokok+bunga
+                    // Pinjaman 9 bulan: 1-8 bulan bayar bunga aja, bulan ke 9 Pokok+bunga
+                    // Pinjaman 12 bulan: 1-11 bulan bayar bunga aja, bulan ke 12 Pokok+bunga
+
+                    // Untuk perhitungan bulan pertama (atau preview), tampilkan bunga saja
+                    angsuranPokok = 0; // Pokok dibayar di bulan terakhir
+                    bungaPerBulan = (plafond * (sukuBunga / 100)) / 12;
+                    totalAngsuran = bungaPerBulan.toFixed(2);
+                    break;
+
+                case 'Anuitas':
+                    // BUNGA ANUITAS: Pokok naik + bunga menurun, total angsuran tetap
+                    // Rumus anuitas: PMT = P * (r * (1 + r)^n) / ((1 + r)^n - 1)
+                    let r = (sukuBunga / 100) / 12; // Bunga per bulan
+                    let n = jangkaWaktu;
+
+                    if (r === 0) {
+                        // Jika bunga 0%, maka angsuran pokok saja
+                        angsuranPokok = (plafond / jangkaWaktu).toFixed(2);
+                        bungaPerBulan = 0;
+                        totalAngsuran = angsuranPokok;
+                    } else {
+                        let pembilang = plafond * r * Math.pow(1 + r, n);
+                        let penyebut = Math.pow(1 + r, n) - 1;
+                        totalAngsuran = (pembilang / penyebut).toFixed(2);
+
+                        // Hitung angsuran pokok dan bunga bulan pertama
+                        bungaPerBulan = (plafond * r).toFixed(2);
+                        angsuranPokok = (totalAngsuran - bungaPerBulan).toFixed(2);
+                    }
+                    break;
+
+                default:
+                    // Default: menggunakan perhitungan Flat
+                    angsuranPokok = (plafond / jangkaWaktu).toFixed(2);
+                    bungaPerBulan = (plafond * (sukuBunga / 100)) / 12;
+                    totalAngsuran = (parseFloat(angsuranPokok) + bungaPerBulan).toFixed(2);
+                    break;
+            }
 
             // Update nilai input dengan format ribuan dan 2 desimal
             document.getElementById('angpok').value = formatDecimal(angsuranPokok);
-            document.getElementById('angbung').value = formatDecimal(angsuranBunga);
+            document.getElementById('angbung').value = formatDecimal(bungaPerBulan);
             document.getElementById('totang').value = formatDecimal(totalAngsuran);
 
             // Update terbilang
@@ -1394,15 +1453,18 @@ function terbilangProvisi($number)
 
             // Update terbilang
             updateTerbilang('totasuransi');
+
+            // Hitung ulang nilai penjamin setelah total asuransi berubah
+            hitungNilaiPenjamin();
         }
 
         function hitungNilaiPenjamin() {
-            // Ambil nilai total angsuran dan jangka waktu
-            let totalAngsuran = parseFloat(document.getElementById('totang').value.replace(/,/g, '')) || 0;
+            // Ambil nilai total asuransi dan jangka waktu
+            let totalAsuransi = parseFloat(document.getElementById('totasuransi').value.replace(/,/g, '')) || 0;
             let jangkaWaktu = parseInt(document.getElementById('jw').value) || 0;
 
-            // Hitung nilai penjamin
-            let nilaiPenjamin = totalAngsuran * jangkaWaktu;
+            // Hitung nilai penjamin dengan rumus flat: total asuransi × jangka waktu
+            let nilaiPenjamin = totalAsuransi * jangkaWaktu;
 
             // Update nilai input nilai penjamin
             document.getElementById('nilpenj').value = formatDecimal(nilaiPenjamin);
@@ -1553,6 +1615,24 @@ function terbilangProvisi($number)
                     if (e.key === 'Enter') {
                         e.preventDefault();
                     }
+                });
+            }
+
+            // Tambahkan event listener untuk field Cara
+            const caraSelect = document.querySelector('select[name="cara"]');
+            if (caraSelect) {
+                caraSelect.addEventListener('change', function() {
+                    // Hitung ulang angsuran ketika cara berubah
+                    hitungAngsuran();
+                });
+            }
+
+            // Tambahkan event listener untuk field Metode
+            const metodeSelect = document.querySelector('select[name="metode"]');
+            if (metodeSelect) {
+                metodeSelect.addEventListener('change', function() {
+                    // Hitung ulang angsuran ketika metode berubah
+                    hitungAngsuran();
                 });
             }
         });
